@@ -53,6 +53,22 @@ describe("Pantry", () => {
 
         expect(pantry.shoppingList).to.deep.eq({ "Cheese": 20, "Flour": 20 })
       })
+
+      it("adds ingredients for multiple recipes to a shopping list", () => {
+        const pantry = new Pantry()
+        const recipe = new Recipe("Cheese Pizza")
+        recipe.addIngredient("Cheese", 20)
+        recipe.addIngredient("Flour", 20)
+        pantry.addToShoppingList(recipe)
+
+        const secondRecipe = new Recipe("Spaghetti")
+        secondRecipe.addIngredient("Noodles", 10)
+        secondRecipe.addIngredient("Sauce", 10)
+        secondRecipe.addIngredient("Cheese", 5)
+        pantry.addToShoppingList(secondRecipe)
+
+        expect(pantry.shoppingList).to.deep.eq({ "Cheese": 25, "Flour": 20, "Noodles": 10, "Sauce": 10 })
+      })
     })
   })
 })
