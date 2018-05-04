@@ -10,16 +10,13 @@ describe("Pantry", () => {
     })
   })
 
-  // describe("functions", () => {
-  //   describe("addIngredient", () => {
-  //     it("adds an ingredient and amount to ingredients", () => {
-  //       const recipe = new Recipe("Pizza")
-  //       expect(recipe.ingredients).to.eql({})
+  describe("functions", () => {
+    describe("stockCheck", () => {
+      it("Checks pantry stock for ingredient, returning the ingredient count", () => {
+        const pantry = new Pantry()
 
-  //       recipe.addIngredient("cheese", 10)
-
-  //       expect(recipe.ingredients).to.eql({ cheese: 10 })
-  //     })
-  //   })
-  // })
+        expect(pantry.stockCheck("Cheese")).to.eql(0)
+      })
+    })
+  })
 })
